@@ -1,0 +1,28 @@
+{
+  "name": "json-gen",
+  "version": "0.0.1",
+  "description": "create json data from json schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skhatri/json-gen.git"
+  },
+  "keywords": [
+    "json",
+    "generator",
+    "jsondata",
+    "jsonschema"
+  ],
+  "author": "Suresh Khatri",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/skhatri/json-gen/issues"
+  },
+  "homepage": "https://github.com/skhatri/json-gen",
+  "dependencies": {
+      "dateformat": "*"
+  }
+}
