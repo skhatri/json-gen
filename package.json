@@ -1,6 +1,6 @@
 {
   "name": "json-gen",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "create json data from json schema",
   "main": "index.js",
   "scripts": {
