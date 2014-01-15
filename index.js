@@ -1,20 +1,16 @@
-var fs = require('fs'), factories = require('./includes/factories');
+var factories = require('./includes/factories');
 
 var generate = function (options) {
     options = options || {};
     options.entity = options.entity || 'none';
-
-    factories.init({schemaDir: options.schemaDir,
-        saveDir: options.saveDir,
-        subtypeDelegate: options.subtypeDelegate,
-        saveAppender: '',
-        persist: true
-    });
+    factories.init(options);
     return factories.createSample(options.entity);
 };
 
 var exports = {
-    generate: generate
+    generate: generate,
+    addFactory: factories.addFactory,
+    replaceFactory: factories.replaceFactory
 };
 
 module.exports = exports;
