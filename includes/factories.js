@@ -99,11 +99,11 @@ valueFactories.push(new StringValueFactory());
 valueFactories.push(arrayFactory);
 valueFactories.push(objectFactory);
 
-var createValue = function (attribute) {
+var createValue = function (attribute, map) {
     var type = attribute.type;
     for (var i = 0; i < valueFactories.length; i += 1) {
         if (valueFactories[i].type === type) {
-            return valueFactories[i].getValue(attribute);
+            return valueFactories[i].getValue(attribute, map);
         }
     }
     return null;
@@ -130,7 +130,7 @@ var produce = function (attributes) {
     for (var prop in attributes) {
         var attribute = attributes[prop];
         if (attribute.type) {
-            map[prop] = createValue(attribute);
+            map[prop] = createValue(attribute, map);
         } else if (attribute.enum) {
             var value = attribute.enum[parseInt(attribute.enum.length * Math.random())];
             map[prop] = value;
