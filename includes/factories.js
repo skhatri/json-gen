@@ -1,4 +1,4 @@
-var helper = require('./helper'), fs = require('fs');
+var helper = require('./helper'), traversal=require('./traversal'), fs = require('fs');
 
 function ValueFactory(type) {
     this.type = type;
@@ -154,6 +154,12 @@ var produceAll = function (item) {
     return map;
 };
 
+var readEntity = function(entity) {
+  var entityText = fs.readFileSync(options.schemaDir + '/' + entity + options.ext, 'utf8');
+  var item = JSON.parse(entityText);
+  return item;
+};
+
 var init = function (opts) {
     options = opts || {};
     options.schemaDir = options.schemaDir || '.';
@@ -163,9 +169,9 @@ var init = function (opts) {
     options.persist = options.persist === undefined || options.persist;
 };
 
+
 var createSample = function (entity) {
-    var entityText = fs.readFileSync(options.schemaDir + '/' + entity + options.ext, 'utf8');
-    var item = JSON.parse(entityText);
+    var item = readEntity(entity);
 
     var map = produceAll(item);
     if (!map.id) {
@@ -178,9 +184,19 @@ var createSample = function (entity) {
     return text;
 };
 
+var compile = function(options) {
+  options = options || {};
+  options.entity = options.entity || 'none';
+  init(options);
+  var item = readEntity(options.entity);
+  return traversal(item);
+};
+
+
 module.exports = {
     init: init,
     addFactory: addFactory,
     replaceFactory: replaceFactory,
-    createSample: createSample
+    createSample: createSample,
+    compile: compile
 };

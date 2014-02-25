@@ -10,7 +10,8 @@ var generate = function (options) {
 var exports = {
     generate: generate,
     addFactory: factories.addFactory,
-    replaceFactory: factories.replaceFactory
+    replaceFactory: factories.replaceFactory,
+    compile: factories.compile
 };
 
 module.exports = exports;
