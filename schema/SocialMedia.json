@@ -1,0 +1,12 @@
+{"type": "object", "$schema": "http://json-schema.org/schema#", "properties": {
+  "linkedin": {
+    "id": "#linkedin",
+    "description": "LinkedIn id",
+    "type": "string"
+  },
+  "twitter": {
+    "id": "#twitter",
+    "description": "Twitter Handle",
+    "type": "string"
+  }
+}, "required": []}
