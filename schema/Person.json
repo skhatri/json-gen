@@ -1,25 +1,35 @@
 {"type": "object", "$schema": "http://json-schema.org/schema#", "properties": {
-    "firstName": {
-        "id": "#firstName",
-        "description": "Description for firstName",
-        "type": "string"
-    },
-    "email": {
-        "id": "#email",
-        "description": "Description for email",
-        "type": "string"
-    },
-    "lastName": {
-        "id": "#lastName",
-        "description": "Description for lastName",
-        "type": "string"
-    },
-    "phone": {
-        "id": "#phone",
-        "description": "Description for phone",
-        "type": "array",
-        "items": {
-            "$ref": "Phone.json"
-        }
+  "firstName": {
+    "id": "#firstName",
+    "description": "Description for firstName",
+    "type": "string"
+  },
+  "email": {
+    "id": "#email",
+    "description": "Description for email",
+    "type": "string"
+  },
+  "lastName": {
+    "id": "#lastName",
+    "description": "Description for lastName",
+    "type": "string"
+  },
+  "group": {
+    "id": "#group",
+    "description": "Group",
+    "enum": ["member", "staff"]
+  },
+  "phone": {
+    "id": "#phone",
+    "description": "Description for phone",
+    "type": "array",
+    "items": {
+      "$ref": "Phone.json"
     }
-}}
+  }
+},
+  "allOf": [
+    {
+      "$ref": "Subscription.json"
+    }
+  ]}
