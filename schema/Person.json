@@ -26,10 +26,17 @@
     "items": {
       "$ref": "Phone.json"
     }
+  },
+  "socialmedia": {
+    "id": "#socialmedia",
+    "description": "Social media details",
+    "type": "object",
+    "$ref": "SocialMedia.json"
   }
 },
   "allOf": [
     {
       "$ref": "Subscription.json"
     }
-  ]}
+]}
+
